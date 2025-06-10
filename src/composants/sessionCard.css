@@ -1,9 +1,8 @@
 .session-card {
   background-color: #fff;
   border: 1px solid #ddd;
+  margin: 1rem;
   border-radius: 8px;
-  padding: 16px;
-  margin: 16px 0;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -14,14 +13,21 @@
 }
 
 .session-card h2 {
-  margin-top: 0;
-  font-size: 1.5rem;
-  margin-bottom: 8px;
-  color: #333;
+    margin-top: 0;
+    font-size: 1.5rem;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+.session-card img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
 
 .session-card p {
-  margin: 4px 0;
   color: #555;
   line-height: 1.4;
 }

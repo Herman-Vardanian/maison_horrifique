@@ -13,6 +13,7 @@ export const handlers = [
           description: 'Explorez une vieille demeure où règnent des présences malveillantes.',
           theme: 'Horreur',
           availability: true,
+          image: './img/maison_hantee.png',
         },
         {
           id: '2',
@@ -23,6 +24,7 @@ export const handlers = [
           description: 'Vous êtes enfermés dans un asile hanté, déjouez ses secrets pour vous échapper.',
           theme: 'Horreur',
           availability: false,
+          image: './img/asile_abandonne.png',
         },
         {
           id: '3',
@@ -33,6 +35,7 @@ export const handlers = [
           description: 'Affrontez les esprits qui errent dans un cimetière sombre.',
           theme: 'Horreur',
           availability: true,
+          image: './img/cimetiere_maudit.png',
         },
         {
           id: '4',
@@ -43,6 +46,7 @@ export const handlers = [
           description: 'Perdez-vous dans un labyrinthe où la peur guette à chaque tournant.',
           theme: 'Horreur',
           availability: true,
+          image: './img/labyrinthe_sombre.png',
         },
         {
           id: '5',
@@ -53,6 +57,7 @@ export const handlers = [
           description: 'Échappez aux expérimentations macabres du docteur fou.',
           theme: 'Horreur',
           availability: false,
+          image: './img/chambre_docteur_fou.png',
         },
       ],
       { headers: { 'Content-Type': 'application/json' } }

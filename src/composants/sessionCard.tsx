@@ -24,7 +24,7 @@ export type Session = {
   maxPlayers: number;
   duration: number;
   description: string;
-  theme: string;
+  image: string;
   availability: boolean;
 };
 
@@ -35,6 +35,11 @@ interface SessionCardProps {
 export const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
     return (
         <div className="session-card">
+        <img
+          src={session.image}
+          alt={session.title}
+          className="session-image"
+        />
         <h2>{session.title}</h2>
         <p>
           <strong>Difficulté :</strong>
@@ -45,7 +50,6 @@ export const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
         <p><strong>Joueurs max :</strong> {session.maxPlayers}</p>
         <p><strong>Durée :</strong> {session.duration} minutes</p>
         <p><strong>Description :</strong> {session.description}</p>
-        <p><strong>Thème :</strong> {session.theme}</p>
         <p><strong>Disponibilité :</strong> {session.availability ? 'Disponible' : 'Indisponible'}</p>
         </div>
     );
