@@ -10,7 +10,7 @@ function ReservationForm() {
   const [name, setName] = useState('');
   const [sessionId, setSessionId] = useState('');
   const [date, setDate] = useState('');
-  const [players, setPlayers] = useState();
+  const [players, setPlayers] = useState<number | undefined>();
   const [sessions, setSessions] = useState<Session[]>([]);
 
   useEffect(() => {
