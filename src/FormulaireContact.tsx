@@ -11,7 +11,9 @@ function ContactForm() {
   };
 
   return (
+    
     <form onSubmit={handleSubmit}>
+      <h2>Formulaire de Contact</h2>
       <input
         type="text"
         placeholder="Nom"
