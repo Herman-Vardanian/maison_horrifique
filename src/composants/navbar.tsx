@@ -10,7 +10,7 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ setPage }) => {
   return (
-    <nav className="navbar">
+    <nav className="navbar" style={{ display: 'flex', alignItems: 'center', padding: '1rem' }}>
       <img 
         src={logo}
         alt="Logo" 
@@ -18,9 +18,11 @@ const Navbar: React.FC<NavbarProps> = ({ setPage }) => {
         onClick={() => setPage('home')} 
         style={{ cursor: 'pointer', maxWidth: '100px', maxHeight: '100px' }} 
       />
-      <button onClick={() => setPage('reservation')}>Réservation</button>
-      <button onClick={() => setPage('sessions')}>Sessions</button>
-      <button onClick={() => setPage('contact')}>Contact</button>
+      <div style={{ marginLeft: 'auto', display: 'flex', gap: '1rem' }}>
+        <button onClick={() => setPage('reservation')}>Réservation</button>
+        <button onClick={() => setPage('sessions')}>Sessions</button>
+        <button onClick={() => setPage('contact')}>Contact</button>
+      </div>
     </nav>
   );
 };
