@@ -13,6 +13,9 @@ function ContactForm() {
   return (
     
     <form onSubmit={handleSubmit}>
+      <h2>Contact :</h2>
+      <p>Email : contact@maisonhorrifique.com</p>
+      <p>Téléphone : 01 23 45 67 89</p>
       <h2>Formulaire de Contact</h2>
       <input
         type="text"
