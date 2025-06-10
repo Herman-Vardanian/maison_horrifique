@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import  { useEffect, useState } from 'react'
 import { SessionCard } from './composants/sessionCard'
 import type { Session } from './composants/sessionCard'
-
 
 export default function SessionsDetails() {
   const [sessions, setSessions] = useState<Session[]>([])
@@ -9,10 +8,16 @@ export default function SessionsDetails() {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    fetch('https://api/v1/sessions')
-      .then((res) => {
+    fetch('/api/v1/sessions')
+      .then(async (res) => {
         if (!res.ok) throw new Error(`Erreur ${res.status}`)
-        return res.json() as Promise<Session[]>
+        const contentType = res.headers.get('content-type')
+      console.log('Content-Type:', contentType)
+        if (contentType && contentType.includes('application/json')) {
+          return res.json() as Promise<Session[]>
+        } else {
+          throw new Error("La réponse du serveur n'est pas du JSON valide.")
+        }
       })
       .then((data) => setSessions(data))
       .catch((err: Error) => setError(err.message))
