@@ -62,6 +62,7 @@ function ReservationForm() {
         type="number"
         placeholder="nombre de joueur"
         min={2}
+        max={8}
         value={players}
         onChange={e => setPlayers(Number(e.target.value))}
         required
