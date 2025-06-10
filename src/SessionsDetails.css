@@ -1,0 +1,29 @@
+.sessions-page {
+  padding: 16px;
+}
+
+.sessions-page h1 {
+  margin-bottom: 24px;
+  font-size: 2rem;
+  text-align: center;
+  color: #333;
+}
+
+.sessions-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .sessions-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .sessions-container {
+    grid-template-columns: 1fr;
+  }
+}
