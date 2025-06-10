@@ -4,6 +4,8 @@ import ReservationForm from './ReservationForm';
 import SessionsDetails from './SessionsDetails';
 import ContactForm from './FormulaireContact';
 import MentionsLegales from './MentionsLegales';
+import Navbar from './composants/navbar';
+import Footer from './composants/footer';
 
 type Page = 'home' | 'reservation' | 'sessions' | 'contact' | 'mentions';
 
@@ -12,12 +14,13 @@ export default function App() {
 
   return (
     <>
-      <nav>
+      {/* <nav>
         <button onClick={() => setPage('home')}>Accueil</button>
         <button onClick={() => setPage('reservation')}>Réservation</button>
         <button onClick={() => setPage('sessions')}>Sessions</button>
         <button onClick={() => setPage('contact')}>Contact</button>
-      </nav>
+      </nav> */}
+      <Navbar setPage={setPage} />
 
       <main>
         {page === 'home' && <Home />}
@@ -28,17 +31,7 @@ export default function App() {
 
       </main>
 
-      <footer>
-        <p>Suivez-nous sur nos Réseaux Sociaux :</p>
-        <ul>
-          <li><a href="https://tiktok.com">Tiktok</a></li>
-          <li><a href="https://instagram.com">Instagram</a></li>
-        </ul>
-
-        <p><button onClick={() => setPage('sessions')}>Détails des sessions</button></p>
-        <p><button onClick={() => setPage('contact')}>Formulaire de contact</button></p>
-        <p><button onClick={() => setPage('mentions')}>Mentions légales</button></p>
-    </footer>
+      <Footer setPage={setPage} />      
 
     </>
   );

@@ -1,0 +1,46 @@
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #000; 
+    padding: 1rem 2rem;
+    color: white;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 1rem;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #ff6347; /* Tomato color */
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.navbar .menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .menu li {
+    margin: 0 0.5rem;
+}
+
+.navbar .menu li a {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+.navbar .menu li a:hover {
+    background-color: #555;
+}
