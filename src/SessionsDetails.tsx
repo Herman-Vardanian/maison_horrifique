@@ -1,11 +1,9 @@
-
-
 import React, { useEffect, useState } from 'react'
 import { SessionCard } from './composants/sessionCard'
 import type { Session } from './composants/sessionCard'
 
 
-export const SessionsPage: React.FC = () => {
+export default function SessionsDetails() {
   const [sessions, setSessions] = useState<Session[]>([])
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
