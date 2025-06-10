@@ -1,6 +1,7 @@
 import  { useEffect, useState } from 'react'
 import { SessionCard } from './composants/sessionCard'
 import type { Session } from './composants/sessionCard'
+import './SessionsDetails.css'
 
 export default function SessionsDetails() {
   const [sessions, setSessions] = useState<Session[]>([])
