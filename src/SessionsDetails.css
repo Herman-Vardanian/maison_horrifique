@@ -15,7 +15,6 @@
   gap: 16px;
 }
 
-/* Responsiveness */
 @media (max-width: 768px) {
   .sessions-container {
     grid-template-columns: repeat(2, 1fr);

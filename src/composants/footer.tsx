@@ -1,6 +1,6 @@
 import React from 'react';
-import tiktokLogo from '../img/tiktok.png'; // Import du logo TikTok
-import instagramLogo from '../img/instagram.png'; // Import du logo Instagram
+import tiktokLogo from '../img/tiktok.png'; 
+import instagramLogo from '../img/instagram.png'; 
 
 interface FooterProps {
     setPage: (page: 'sessions' | 'contact' | 'mentions') => void;
