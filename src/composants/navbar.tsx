@@ -1,27 +1,24 @@
 import React from 'react';
 import './navbar.css';
 import logo from '../img/logo_2.png';
+import { useNavigate } from 'react-router-dom';
 
-type Page = 'home' | 'reservation' | 'sessions' | 'contact';
+const Navbar: React.FC = () => {
+  const navigate = useNavigate();
 
-interface NavbarProps {
-  setPage: (page: Page) => void;
-}
-
-const Navbar: React.FC<NavbarProps> = ({ setPage }) => {
   return (
     <nav className="navbar" style={{ display: 'flex', alignItems: 'center', padding: '1rem' }}>
       <img 
         src={logo}
         alt="Logo" 
         className="navbar-logo" 
-        onClick={() => setPage('home')} 
+        onClick={() => navigate('/')} 
         style={{ cursor: 'pointer', maxWidth: '100px', maxHeight: '100px' }} 
       />
       <div style={{ marginLeft: 'auto', display: 'flex', gap: '1rem' }}>
-        <button onClick={() => setPage('reservation')}>Réservation</button>
-        <button onClick={() => setPage('sessions')}>Sessions</button>
-        <button onClick={() => setPage('contact')}>Contact</button>
+        <button onClick={() => navigate('/reservation')}>Réservation</button>
+        <button onClick={() => navigate('/sessions')}>Sessions</button>
+        <button onClick={() => navigate('/contact')}>Contact</button>
       </div>
     </nav>
   );

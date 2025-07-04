@@ -63,4 +63,14 @@ export const handlers = [
       { headers: { 'Content-Type': 'application/json' } }
     )
   }),
+  http.post('/api/v1/sessions', async ({ request }) => {
+    const newSession = await request.json();
+    return HttpResponse.json(
+      {
+        message: 'Session créée avec succès',
+        session: newSession,
+      },
+      { status: 201 }
+    );
+  }),
 ]

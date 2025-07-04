@@ -1,12 +1,14 @@
 import  { useEffect, useState } from 'react'
-import { SessionCard } from './composants/sessionCard'
-import type { Session } from './composants/sessionCard'
+import { useNavigate } from 'react-router-dom'
+import { SessionCard } from '../composants/sessionCard'
+import type { Session } from '../composants/sessionCard'
 import './SessionsDetails.css'
 
 export default function SessionsDetails() {
   const [sessions, setSessions] = useState<Session[]>([])
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
+  const navigate = useNavigate()
 
   useEffect(() => {
     fetch('/api/v1/sessions')
@@ -31,6 +33,9 @@ export default function SessionsDetails() {
   return (
     <div className="sessions-page">
       <h1>Sessions Escape Game – Horreur</h1>
+      <button onClick={() => navigate('/creer-session')} className="create-session-button">
+        Créer une nouvelle session
+      </button>
       <div className="sessions-container">
         {sessions.map((session) => (
           <SessionCard key={session.id} session={session} />
