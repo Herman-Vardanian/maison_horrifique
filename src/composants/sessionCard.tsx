@@ -1,5 +1,6 @@
 import React from 'react';
 import './sessionCard.css';
+import { useNavigate } from 'react-router-dom';
 
 const getFlameCount = (difficulty: string): number => {
   const difficultyMap: Record<string, number> = {
@@ -27,6 +28,8 @@ interface SessionCardProps {
 }
 
 export const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
+    const navigate = useNavigate();
+
     return (
         <div className="session-card">
         <img
@@ -45,6 +48,9 @@ export const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
         <p><strong>Durée :</strong> {session.duration} minutes</p>
         <p><strong>Description :</strong> {session.description}</p>
         <p><strong>Disponibilité :</strong> {session.availability ? 'Disponible' : 'Indisponible'}</p>
+        <button onClick={() => navigate(`/EditSession/${session.id}`)}>
+          Modifier la session
+        </button>
         </div>
     );
     };

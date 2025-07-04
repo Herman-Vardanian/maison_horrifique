@@ -5,6 +5,7 @@ import Reservation from './ReservationForm';
 import SessionsDetails from './session/SessionsDetails';
 import Contact from './FormulaireContact';
 import CreateSession from './session/CreateSession';
+import EditSession from './session/EditSession';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/sessions" element={<SessionsDetails />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/creer-session" element={<CreateSession />} />
+        <Route path="/editSession/:id" element={<EditSession />} />
       </Routes>
     </Router>
   );
