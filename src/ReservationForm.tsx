@@ -14,7 +14,7 @@ function ReservationForm() {
   const [sessions, setSessions] = useState<Session[]>([]);
 
   useEffect(() => {
-    fetch('/api/v1/sessions')
+    fetch(`${import.meta.env.VITE_API_URL}/sessions`)
       .then(res => res.json())
       .then(data => setSessions(data));
   }, []);

@@ -11,7 +11,7 @@ export default function SessionsDetails() {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch('/api/v1/sessions')
+    fetch(`${import.meta.env.VITE_API_URL}/sessions`)
       .then(async (res) => {
         if (!res.ok) throw new Error(`Erreur ${res.status}`)
         const contentType = res.headers.get('content-type')
