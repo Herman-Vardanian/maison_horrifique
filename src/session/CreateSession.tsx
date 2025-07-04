@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './CreateSession.css';
 
 export default function CreateSession() {
@@ -10,6 +11,7 @@ export default function CreateSession() {
   const [availability, setAvailability] = useState(true);
   const [image, setImage] = useState('');
   const messageRef = useRef<HTMLParagraphElement | null>(null);
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,6 +43,13 @@ export default function CreateSession() {
 
   return (
     <div style={{ padding: '1rem' }}>
+      <button
+        type="button"
+        onClick={() => navigate(-1)}
+        style={{ marginBottom: '1rem' }}
+      >
+        ← Retour
+      </button>
       <h1>Créer une session</h1>
       <form onSubmit={handleSubmit}>
         <div>

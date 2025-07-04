@@ -11,11 +11,12 @@ type Session = {
 };
 
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import './EditSession.css'; 
 
 export default function EditSession() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [session, setSession] = useState<Session | null>(null);
 
   const [title, setTitle] = useState('');
@@ -54,6 +55,9 @@ export default function EditSession() {
 
   return (
     <div id="edit-session-page">
+      <button type="button" onClick={() => navigate(-1)} style={{ marginBottom: '1rem' }}>
+        ← Retour
+      </button>
       <h1 id='titre'>Modifier la session</h1>
       <form id="edit-session-form" onSubmit={handleSubmit}>
         <div className="form-group">
