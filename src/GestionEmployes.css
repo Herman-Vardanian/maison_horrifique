@@ -1,0 +1,118 @@
+/* GestionEmployes.css */
+
+.gestion-employes-container {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 0 1rem;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    color: #ecf0f1;
+  }
+  
+  /* Le titre */
+  .gestion-employes-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #f39c12;
+  }
+  
+  /* Carte semi-opaque autour du formulaire */
+  .form-card {
+    background: rgba(44, 62, 80, 0.6);
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Champs et bouton dans la même carte */
+  .gestion-employes-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+  
+  .gestion-employes-form input {
+    padding: 0.75rem;
+    border-radius: 4px;
+    border: none;
+    background: rgba(236, 240, 241, 0.1);
+    color: #ecf0f1;
+  }
+  
+  .gestion-employes-form input::placeholder {
+    color: #bdc3c7;
+  }
+  
+  .gestion-employes-form button {
+    grid-column: 1 / -1;
+    padding: 0.75rem;
+    background-color: #e67e22;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color .2s, transform .1s;
+  }
+  
+  .gestion-employes-form button:hover {
+    background-color: #d35400;
+    transform: translateY(-2px);
+  }
+  
+  /* Tableau dans une carte elle aussi */
+  .table-card {
+    background: rgba(44, 62, 80, 0.6);
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  .gestion-employes-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px; /* espace vertical entre les lignes */
+  }
+  
+  .gestion-employes-table th {
+    background: transparent;
+    color: #f39c12;
+    font-weight: 600;
+    padding: 0.75rem 1rem;
+    text-align: left;
+  }
+  
+  .gestion-employes-table td {
+    background: rgba(236, 240, 241, 0.1);
+    padding: 0.75rem 1rem;
+    color: #ecf0f1;
+  }
+  
+  .gestion-employes-table tr:hover td {
+    background: rgba(236, 240, 241, 0.2);
+  }
+  
+  .gestion-employes-table td.actions {
+    text-align: center;
+  }
+  
+  .gestion-employes-table button.delete {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color .2s, transform .1s;
+  }
+  
+  .gestion-employes-table button.delete:hover {
+    color: #c0392b;
+    transform: scale(1.05);
+  }
+  

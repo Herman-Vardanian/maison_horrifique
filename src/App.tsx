@@ -8,6 +8,7 @@ import Navbar from './composants/navbar'
 import Footer from './composants/footer'
 import LoginPage from './login'
 import RegisterPage from './register'
+import GestionEmployes from './GestionEmployes'
 
 type Page =
   | 'home'
@@ -17,6 +18,7 @@ type Page =
   | 'mentions'
   | 'login'
   | 'register'
+  | 'employees'
 
 interface User {
   username: string
@@ -70,6 +72,7 @@ export default function App() {
             {page === 'sessions' && <SessionsDetails />}
             {page === 'contact' && <ContactForm />}
             {page === 'mentions' && <MentionsLegales />}
+            {page === 'employees' && <GestionEmployes />}
           </>
         )}
       </main>

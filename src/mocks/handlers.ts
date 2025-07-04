@@ -1,5 +1,26 @@
 import { http, HttpResponse } from "msw";
 
+interface User {
+  username: string;
+  password: string;
+  email: string;
+}
+const users: User[] = [
+  { username: "admin", password: "password", email: "admin@domain.com" },
+];
+
+interface Employee {
+  id: number;
+  nom: string;
+  email: string;
+  role: string;
+}
+let employees: Employee[] = [
+  { id: 1, nom: "Dupont", email: "dupont@example.com", role: "Manager" },
+  { id: 2, nom: "Durand", email: "durand@example.com", role: "Assistant" },
+];
+let nextEmpId = employees.length + 1;
+
 export const handlers = [
   http.get("/api/v1/sessions", () => {
     return HttpResponse.json(
@@ -105,6 +126,28 @@ export const handlers = [
         { status: 400, headers: { "Content-Type": "application/json" } }
       );
     }
+  }),
+
+  http.get("/api/v1/employees", () => {
+    return HttpResponse.json(employees, {
+      headers: { "Content-Type": "application/json" },
+    });
+  }),
+
+  http.post("/api/v1/employees", async ({ request }) => {
+    const { nom, email, role } = (await request.json()) as Omit<Employee, 'id'>;
+    if (!nom || !email || !role) {
+      return HttpResponse.json({ error: "Tous les champs sont requis." }, { status: 400 });
+    }
+    const newEmp: Employee = { id: nextEmpId++, nom, email, role };
+    employees.push(newEmp);
+    return HttpResponse.json(newEmp, { status: 201 });
+  }),
+
+  http.delete("/api/v1/employees/:id", ({ params }) => {
+    const id = Number(params.id);
+    employees = employees.filter(emp => emp.id !== id);
+    return HttpResponse.json({});
   }),
 ];
 
