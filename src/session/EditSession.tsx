@@ -24,7 +24,6 @@ export default function EditSession() {
   const [difficulty, setDifficulty] = useState('');
   const [maxPlayers, setMaxPlayers] = useState(1);
   const [duration, setDuration] = useState(60);
-  const [theme, setTheme] = useState('');
   const [availability, setAvailability] = useState('');
   const [image, setImage] = useState('');
 
@@ -38,7 +37,6 @@ export default function EditSession() {
       setDifficulty(data.difficulty.toLowerCase());
       setMaxPlayers(data.maxPlayers);
       setDuration(data.duration);
-      setTheme(data.theme);
       setAvailability(data.availability ? 'true' : 'false');
       setImage(data.image);
     };
@@ -84,10 +82,6 @@ export default function EditSession() {
         <div className="form-group">
           <label htmlFor="duration">Durée (en minutes) :</label>
           <input id="duration" type="number" value={duration} onChange={(e) => setDuration(Number(e.target.value))} required />
-        </div>
-        <div className="form-group">
-          <label htmlFor="theme">Thème :</label>
-          <input id="theme" type="text" value={theme} onChange={(e) => setTheme(e.target.value)} required />
         </div>
         <div className="form-group">
           <label htmlFor="availability">Disponible :</label>
