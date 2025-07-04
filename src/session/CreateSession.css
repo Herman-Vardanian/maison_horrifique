@@ -46,7 +46,7 @@ button:hover {
   background-color: #005fa3;
 }
 
-p {
+#message {
   margin-top: 1rem;
   color: green;
   text-align: center;

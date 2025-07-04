@@ -98,7 +98,7 @@ export default function CreateSession() {
         </div>
         <button type="submit">Créer</button>
       </form>
-      <p ref={messageRef}></p>
+      <p id='message' ref={messageRef}></p>
     </div>
   );
 }

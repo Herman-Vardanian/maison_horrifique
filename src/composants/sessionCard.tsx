@@ -2,19 +2,13 @@ import React from 'react';
 import './sessionCard.css';
 
 const getFlameCount = (difficulty: string): number => {
-  switch (difficulty.toLowerCase()) {
-    case 'facile':
-    case 'easy':
-      return 1;
-    case 'moyen':
-    case 'medium':
-      return 2;
-    case 'difficile':
-    case 'hard':
-      return 3;
-    default:
-      return 0;
-  }
+  const difficultyMap: Record<string, number> = {
+    facile: 1,
+    moyen: 2,
+    difficile: 3,
+  };
+
+  return difficultyMap[difficulty.toLowerCase()] || 0;
 };
 
 export type Session = {
