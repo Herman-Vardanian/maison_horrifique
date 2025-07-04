@@ -53,7 +53,7 @@ export default function EditSession() {
 
   return (
     <div id="edit-session-page">
-      <button type="button" onClick={() => navigate(-1)} style={{ marginBottom: '1rem' }}>
+      <button type="button" onClick={() => navigate('/sessions')} style={{ marginBottom: '1rem' }}>
         ← Retour
       </button>
       <h1 id='titre'>Modifier la session</h1>
