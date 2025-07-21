@@ -1,38 +1,42 @@
 import React from 'react';
-import tiktokLogo from '../img/tiktok.png'; 
-import instagramLogo from '../img/instagram.png'; 
 import { useNavigate } from 'react-router-dom';
+import tiktokLogo from '../img/tiktok.png';
+import instagramLogo from '../img/instagram.png';
+import './Footer.css';
+import { useTheme } from '../ThemeChoice';
 
 const Footer: React.FC = () => {
-  const navigate = useNavigate();
+    const navigate = useNavigate();
+    const { theme, toggleTheme } = useTheme();
 
     return (
-        <footer style={{ backgroundColor: 'black', color: 'white', padding: '1rem' }}>
-            <p>Suivez-nous sur nos Réseaux Sociaux :</p>
-            <ul style={{ display: 'flex', justifyContent: 'center', gap: '1rem', listStyle: 'none', padding: 0 }}>
-                <li>
-                    <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer">
-                        <img src={tiktokLogo} alt="TikTok" style={{ width: '40px', height: '40px' }} />
-                    </a>
-                </li>
-                <li>
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                        <img src={instagramLogo} alt="Instagram" style={{ width: '40px', height: '40px' }} />
-                    </a>
-                </li>
-            </ul>
+        <footer className="footer">
+        <p className="footer-title">Suivez-nous sur nos Réseaux Sociaux :</p>
+        <ul className="social-links">
+            <li>
+            <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer">
+                <img src={tiktokLogo} alt="TikTok" className="social-logo" />
+            </a>
+            </li>
+            <li>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                <img src={instagramLogo} alt="Instagram" className="social-logo" />
+            </a>
+            </li>
+        </ul>
 
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1rem' }}>
-                <button onClick={() => navigate('/sessions')}>Détails des sessions</button>
-                <button onClick={() => navigate('/contact')}>Formulaire de contact</button>
-                <button onClick={() => navigate('/MentionsLegales')}>Mentions légales</button>
-            </div>
+        <div className="footer-buttons">
+            <button onClick={() => navigate('/sessions')}>Détails des sessions</button>
+            <button onClick={() => navigate('/contact')}>Formulaire de contact</button>
+            <button onClick={() => navigate('/MentionsLegales')}>Mentions légales</button>
+            <button onClick={toggleTheme}>{theme === 'dark' ? 'Light' : 'Dark'} mode</button>
+        </div>
 
-            <p style={{ textAlign: 'center', marginTop: '1rem' }}>
-                © {new Date().getFullYear()} Maison horrifique Tous droits réservés.
-            </p>
+        <p className="footer-copy">
+            © {new Date().getFullYear()} Maison horrifique Tous droits réservés.
+        </p>
         </footer>
-    );
+  );
 };
 
 export default Footer;

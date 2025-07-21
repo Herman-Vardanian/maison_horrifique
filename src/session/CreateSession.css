@@ -4,7 +4,6 @@
   padding: 1rem;
   border: 1px solid #ccc;
   border-radius: 8px;
-  background-color: #fafafa;
   font-family: Arial, sans-serif;
 }
 
@@ -24,22 +23,25 @@ label {
 }
 
 input,
-textarea {
+textarea,
+select {
   width: 100%;
   padding: 0.5rem;
   border: 1px solid #bbb;
   border-radius: 4px;
   font-size: 1rem;
+  font-family: inherit;
 }
 
 button {
   padding: 0.6rem 1.2rem;
   font-size: 1rem;
   border: none;
-  background-color: #0077cc;
-  color: white;
   border-radius: 4px;
   cursor: pointer;
+  background-color: #0077cc;
+  color: white;
+  transition: background-color 0.2s ease;
 }
 
 button:hover {
@@ -52,13 +54,48 @@ button:hover {
   text-align: center;
 }
 
-select {
-  width: 100%;
-  padding: 0.5rem;
-  border: 1px solid #bbb;
-  border-radius: 4px;
-  font-size: 1rem;
-  background-color: white;
+body.dark .container {
+  background-color: #222;
+  border-color: #555;
+  color: white;
+}
+
+body.dark input,
+body.dark textarea,
+body.dark select {
+  background-color: #333;
+  border: 1px solid #666;
+  color: white;
+}
+
+body.dark button {
+  background-color: #3399ff;
+  color: white;
+}
+
+body.dark button:hover {
+  background-color: #1a73e8;
+}
+
+body.light .container {
+  background-color: #fafafa;
+  border-color: #ccc;
   color: black;
-  font-family: inherit;
+}
+
+body.light input,
+body.light textarea,
+body.light select {
+  background-color: white;
+  border: 1px solid #bbb;
+  color: black;
+}
+
+body.light button {
+  background-color: #0077cc;
+  color: white;
+}
+
+body.light button:hover {
+  background-color: #005fa3;
 }

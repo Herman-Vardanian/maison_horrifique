@@ -6,7 +6,6 @@
   margin-bottom: 24px;
   font-size: 2rem;
   text-align: center;
-  color: #333;
 }
 
 .sessions-container {
@@ -15,3 +14,18 @@
   gap: 16px;
 }
 
+body.dark .sessions-page {
+  background-color: #121212;
+}
+
+body.dark .sessions-page h1 {
+  color: #eee;
+}
+
+body.light .sessions-page {
+  background-color: white;
+}
+
+body.light .sessions-page h1 {
+  color: #333;
+}

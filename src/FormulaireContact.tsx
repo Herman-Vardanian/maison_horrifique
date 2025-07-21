@@ -18,6 +18,7 @@ function ContactForm() {
       <p>Email : contact@maisonhorrifique.com</p>
       <p>Téléphone : 01 23 45 67 89</p>
       <h2>Formulaire de Contact</h2>
+      <label htmlFor="name">Nom</label>
       <input
         type="text"
         placeholder="Nom"
@@ -25,6 +26,7 @@ function ContactForm() {
         onChange={e => setName(e.target.value)}
         required
       />
+      <label htmlFor="email">Email</label>
       <input
         type="email"
         placeholder="Email"
@@ -32,6 +34,7 @@ function ContactForm() {
         onChange={e => setEmail(e.target.value)}
         required
       />
+      <label htmlFor="message">Message</label>
       <textarea
         placeholder="Message"
         value={message}

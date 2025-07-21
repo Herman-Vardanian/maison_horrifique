@@ -13,6 +13,8 @@ function ReservationForm() {
   const [players, setPlayers] = useState<number | undefined>();
   const [sessions, setSessions] = useState<Session[]>([]);
 
+  const today = new Date().toISOString().split('T')[0];
+
   useEffect(() => {
     fetch(`${import.meta.env.VITE_API_URL}/sessions`)
       .then(res => res.json())
@@ -27,7 +29,7 @@ function ReservationForm() {
   return (
     <form onSubmit={handleSubmit}>
       <h2>Formulaire de Réservation</h2>
-
+      <label htmlFor="name">Nom</label>
       <input
         type="text"
         placeholder="Nom"
@@ -35,7 +37,7 @@ function ReservationForm() {
         onChange={e => setName(e.target.value)}
         required
       />
-
+      <label htmlFor="session">Session</label>
       <select
         value={sessionId}
         onChange={e => setSessionId(e.target.value)}
@@ -50,17 +52,18 @@ function ReservationForm() {
             </option>
           ))}
       </select>
-
+      <label htmlFor="date">Date</label>
       <input
         type="date"
         value={date}
         onChange={e => setDate(e.target.value)}
+        min={today}
         required
       />
-
+      <label htmlFor="players">Nombre de joueurs</label>
       <input
         type="number"
-        placeholder="nombre de joueur"
+        placeholder="nombre de joueurs"
         min={2}
         max={8}
         value={players}

@@ -2,10 +2,10 @@ form {
   max-width: 500px;
   margin: 2rem auto;
   padding: 1.5rem;
-  background-color: #222;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  color: #fff;
+  font-size: 1rem;
+  box-sizing: border-box;
 }
 
 form input,
@@ -14,19 +14,17 @@ form button {
   width: 100%;
   margin-bottom: 1rem;
   padding: 0.8rem;
-  border: 1px solid #444;
   border-radius: 4px;
-  background-color: #333;
-  color: #fff;
   font-size: 1rem;
   box-sizing: border-box;
+  border: 1px solid;
 }
 
 form input:focus,
 form textarea:focus {
   outline: none;
-  border-color: #1e90ff;
   box-shadow: 0 0 4px #1e90ff;
+  border-color: #1e90ff;
 }
 
 form textarea {
@@ -35,7 +33,6 @@ form textarea {
 }
 
 form button {
-  background-color: #1e90ff;
   border: none;
   cursor: pointer;
   font-weight: bold;
@@ -46,14 +43,80 @@ form button:hover {
   background-color: #1c7ed6;
 }
 
+form label {
+  display: inline;
+  margin-bottom: 1rem;
+}
+
 form h2 {
   text-align: center;
   margin-bottom: 1.5rem;
   font-size: 1.8rem;
-  color: #1e90ff;
 }
 
 form input::placeholder,
 form textarea::placeholder {
   color: #aaa;
+}
+
+body.dark form {
+  background-color: #222;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+body.dark form input,
+body.dark form textarea {
+  background-color: #333;
+  border-color: #444;
+  color: #fff;
+}
+
+body.dark form button {
+  background-color: #1e90ff;
+  color: white;
+}
+
+body.dark form button:hover {
+  background-color: #1c7ed6;
+}
+
+body.dark form h2 {
+  color: #1e90ff;
+}
+
+body.dark form input::placeholder,
+body.dark form textarea::placeholder {
+  color: #aaa;
+}
+
+body.light form {
+  background-color: white;
+  color: black;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.light form input,
+body.light form textarea {
+  background-color: white;
+  border-color: #ccc;
+  color: black;
+}
+
+body.light form button {
+  background-color: #0077cc;
+  color: white;
+}
+
+body.light form button:hover {
+  background-color: #005fa3;
+}
+
+body.light form h2 {
+  color: #0077cc;
+}
+
+body.light form input::placeholder,
+body.light form textarea::placeholder {
+  color: #666;
 }
