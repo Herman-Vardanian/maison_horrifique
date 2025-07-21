@@ -2,12 +2,10 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import tiktokLogo from '../img/tiktok.png';
 import instagramLogo from '../img/instagram.png';
-import './Footer.css';
-import { useTheme } from '../ThemeChoice';
+import './footer.css';
 
 const Footer: React.FC = () => {
     const navigate = useNavigate();
-    const { theme, toggleTheme } = useTheme();
 
     return (
         <footer className="footer">
@@ -29,7 +27,6 @@ const Footer: React.FC = () => {
             <button onClick={() => navigate('/sessions')}>Détails des sessions</button>
             <button onClick={() => navigate('/contact')}>Formulaire de contact</button>
             <button onClick={() => navigate('/MentionsLegales')}>Mentions légales</button>
-            <button onClick={toggleTheme}>{theme === 'dark' ? 'Light' : 'Dark'} mode</button>
         </div>
 
         <p className="footer-copy">
