@@ -1,12 +1,11 @@
 import React from 'react';
 import tiktokLogo from '../img/tiktok.png'; 
 import instagramLogo from '../img/instagram.png'; 
+import { useNavigate } from 'react-router-dom';
 
-interface FooterProps {
-    setPage: (page: 'sessions' | 'contact' | 'mentions') => void;
-}
+const Footer: React.FC = () => {
+  const navigate = useNavigate();
 
-const Footer: React.FC<FooterProps> = ({ setPage }) => {
     return (
         <footer style={{ backgroundColor: 'black', color: 'white', padding: '1rem' }}>
             <p>Suivez-nous sur nos Réseaux Sociaux :</p>
@@ -24,9 +23,9 @@ const Footer: React.FC<FooterProps> = ({ setPage }) => {
             </ul>
 
             <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1rem' }}>
-                <button onClick={() => setPage('sessions')}>Détails des sessions</button>
-                <button onClick={() => setPage('contact')}>Formulaire de contact</button>
-                <button onClick={() => setPage('mentions')}>Mentions légales</button>
+                <button onClick={() => navigate('/sessions')}>Détails des sessions</button>
+                <button onClick={() => navigate('/contact')}>Formulaire de contact</button>
+                <button onClick={() => navigate('/MentionsLegales')}>Mentions légales</button>
             </div>
 
             <p style={{ textAlign: 'center', marginTop: '1rem' }}>

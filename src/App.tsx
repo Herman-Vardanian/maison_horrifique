@@ -6,6 +6,8 @@ import SessionsDetails from './session/SessionsDetails';
 import Contact from './FormulaireContact';
 import CreateSession from './session/CreateSession';
 import EditSession from './session/EditSession';
+import Footer from './composants/footer';
+import MentionsLegales from './MentionsLegales';
 
 function App() {
   return (
@@ -18,7 +20,9 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/creer-session" element={<CreateSession />} />
         <Route path="/editSession/:id" element={<EditSession />} />
+        <Route path="/MentionsLegales" element={<MentionsLegales />} />
       </Routes>
+      <Footer />
     </Router>
   );
 }
