@@ -3,6 +3,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 1rem;
+  background-color: #f5f5f5;
+  color: black;
 }
 
 .navbar-logo {
@@ -10,30 +12,38 @@
   cursor: pointer;
 }
 
-.navbar-buttons {
+.navbar-links {
   display: flex;
   gap: 1rem;
 }
 
-.navbar-buttons button {
+.navbar-links button {
   border: none;
   padding: 0.5rem 1rem;
   cursor: pointer;
   border-radius: 4px;
   transition: background-color 0.2s ease;
+  background-color: black;
+  color: white;
 }
 
+.navbar-links button:hover {
+  background-color: #333;
+  color: #ff6347;
+}
+
+/* Thèmes dark/light */
 body.dark .navbar {
   background-color: black;
   color: white;
 }
 
-body.dark .navbar-buttons button {
+body.dark .navbar-links button {
   background-color: white;
   color: black;
 }
 
-body.dark .navbar-buttons button:hover {
+body.dark .navbar-links button:hover {
   background-color: #ddd;
 }
 
@@ -42,11 +52,11 @@ body.light .navbar {
   color: black;
 }
 
-body.light .navbar-buttons button {
+body.light .navbar-links button {
   background-color: black;
   color: white;
 }
 
-body.light .navbar-buttons button:hover {
+body.light .navbar-links button:hover {
   background-color: #333;
 }
