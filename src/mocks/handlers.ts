@@ -33,6 +33,7 @@ export const handlers = [
           duration: 60,
           description: "Une expérience terrifiante dans une maison abandonnée...",
           price: 25,
+          available: true,
           image: "./img/maison_hantee.png",
         },
         {
@@ -43,6 +44,7 @@ export const handlers = [
           duration: 45,
           description: "Explorez un ancien cimetière où les morts ne reposent pas en paix...",
           price: 30,
+          available: true,
           image: "./img/cimetiere_maudit.png",
         },
         {
@@ -53,6 +55,7 @@ export const handlers = [
           duration: 75,
           description: "Infiltrez-vous dans un asile psychiatrique abandonné...",
           price: 35,
+          available: true,
           image: "./img/asile_abandonne.png",
         },
         {
@@ -63,6 +66,7 @@ export const handlers = [
           duration: 90,
           description: "Perdez-vous dans un labyrinthe où la sortie n'existe peut-être pas...",
           price: 40,
+          available: true,
           image: "./img/labyrinthe_sombre.png",
         },
         {
@@ -73,6 +77,7 @@ export const handlers = [
           duration: 60,
           description: "Échappez-vous du laboratoire d'un scientifique dérangé...",
           price: 45,
+          available: true,
           image: "./img/chambre_docteur_fou.png",
         },
       ],
@@ -91,6 +96,7 @@ export const handlers = [
         duration: 60,
         description: 'Une expérience terrifiante dans une maison abandonnée...',
         price: 25,
+        available: true,
         image: './img/maison_hantee.png',
       },
       {
@@ -101,6 +107,7 @@ export const handlers = [
         duration: 45,
         description: 'Explorez un ancien cimetière où les morts ne reposent pas en paix...',
         price: 30,
+        available: true,
         image: './img/cimetiere_maudit.png',
       },
       {
@@ -111,6 +118,7 @@ export const handlers = [
         duration: 75,
         description: 'Infiltrez-vous dans un asile psychiatrique abandonné...',
         price: 35,
+        available: true,
         image: './img/asile_abandonne.png',
       },
       {
@@ -121,6 +129,7 @@ export const handlers = [
         duration: 90,
         description: "Perdez-vous dans un labyrinthe où la sortie n'existe peut-être pas...",
         price: 40,
+        available: true,
         image: './img/labyrinthe_sombre.png',
       },
       {
@@ -131,6 +140,7 @@ export const handlers = [
         duration: 60,
         description: "Échappez-vous du laboratoire d'un scientifique dérangé...",
         price: 45,
+        available: true,
         image: './img/chambre_docteur_fou.png',
       },
     ];
@@ -250,5 +260,15 @@ export const handlers = [
 
     employees.splice(empIndex, 1);
     return new HttpResponse(null, { status: 204 });
+  }),
+
+  http.get("/api/v1/sessions/:id/slots", ({ params }) => {
+    const { id } = params;
+    const slots = [
+      { sessionId: id, start: "2025-07-25T10:00:00Z", end: "2025-07-25T11:00:00Z", available: true },
+      { sessionId: id, start: "2025-07-25T12:00:00Z", end: "2025-07-25T13:00:00Z", available: false },
+      { sessionId: id, start: "2025-07-26T14:00:00Z", end: "2025-07-26T15:00:00Z", available: true },
+    ];
+    return HttpResponse.json(slots, { headers: { "Content-Type": "application/json" } });
   }),
 ];
