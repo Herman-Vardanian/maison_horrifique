@@ -1,3 +1,5 @@
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useEffect, useState } from 'react';
 
 type Session = {
@@ -55,6 +57,7 @@ useEffect(() => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log({ name, sessionId, date, players});
+    toast.success('Réservation enregistrée avec succès !');
   };
   const selectedSession = sessions.find(session => session.id === sessionId);
   const maxPlayersAllowed = selectedSession?.maxPlayers;
@@ -62,6 +65,7 @@ useEffect(() => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <ToastContainer position="top-center" />
       <h2>Formulaire de Réservation</h2>
       <label htmlFor="name">Nom</label>
       <input
