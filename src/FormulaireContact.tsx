@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './FormulaireContact.css';
 
 function ContactForm() {
@@ -9,6 +11,7 @@ function ContactForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log({ name, email, message });
+    toast.success('Message envoyé avec succès !');
   };
 
   return (
@@ -42,6 +45,7 @@ function ContactForm() {
         required
       />
       <button type="submit">Envoyer</button>
+      <ToastContainer position="top-center" />
     </form>
   );
 }
