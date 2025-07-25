@@ -28,7 +28,29 @@ interface SessionCardProps {
 }
 
 export const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+
+  const handleDelete = async () => {
+  const confirmDelete = window.confirm("Supprimer cette session ?");
+  if (!confirmDelete || !session.id) return;
+
+  try {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/sessions/${session.id}`, {
+      method: 'DELETE',
+    });
+
+    if (response.ok) {
+      alert("Session supprimée!");
+      navigate("/sessions");
+    } else {
+      alert("Erreur lors de la suppression.");
+    }
+  } catch (err) {
+    console.error(err);
+    alert("Erreur de l'API");
+  }
+};
+
 
     return (
         <div className="session-card">
@@ -51,6 +73,7 @@ export const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
         <button onClick={() => navigate(`/EditSession/${session.id}`)}>
           Modifier la session
         </button>
+        <button type="button" className="delete-button" onClick={handleDelete}>Supprimer la session</button>
         </div>
     );
     };

@@ -26,7 +26,6 @@
   line-height: 1.4;
 }
 
-
 body.dark .session-card {
   background-color: #1a1a1a;
   box-shadow: 0 2px 4px rgba(255,255,255,0.05);
@@ -75,4 +74,14 @@ body.light .session-card p strong {
 
 body.light .session-card img {
   box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.session-card .delete-button {
+  margin-top: 1rem;
+  background-color: #e74c3c;
+  color: white;
+}
+
+.session-card  .delete-button:hover {
+  background-color: #c0392b;
 }
