@@ -25,31 +25,32 @@ export type Session = {
 
 interface SessionCardProps {
   session: Session;
+  onDelete: (id: string) => void;
 }
 
-export const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
+export const SessionCard: React.FC<SessionCardProps> = ({ session, onDelete }) => {
   const navigate = useNavigate();
 
   const handleDelete = async () => {
-  const confirmDelete = window.confirm("Supprimer cette session ?");
-  if (!confirmDelete || !session.id) return;
+    const confirmDelete = window.confirm("Supprimer cette session ?");
+    if (!confirmDelete) return;
 
-  try {
-    const response = await fetch(`${import.meta.env.VITE_API_URL}/sessions/${session.id}`, {
-      method: 'DELETE',
-    });
+    try {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/sessions/${session.id}`, {
+        method: 'DELETE',
+      });
 
-    if (response.ok) {
-      alert("Session supprimée!");
-      navigate("/sessions");
-    } else {
-      alert("Erreur lors de la suppression.");
+      if (response.ok) {
+        alert("Session supprimée !");
+        onDelete(session.id);
+      } else {
+        alert("Erreur lors de la suppression.");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Erreur de l'API");
     }
-  } catch (err) {
-    console.error(err);
-    alert("Erreur de l'API");
-  }
-};
+  };
 
 
     return (
@@ -73,7 +74,7 @@ export const SessionCard: React.FC<SessionCardProps> = ({ session }) => {
         <button onClick={() => navigate(`/EditSession/${session.id}`)}>
           Modifier la session
         </button>
-        <button type="button" className="delete-button" onClick={handleDelete}>Supprimer la session</button>
+        <button className="delete-button" onClick={handleDelete}>Supprimer la session</button>
         </div>
     );
     };

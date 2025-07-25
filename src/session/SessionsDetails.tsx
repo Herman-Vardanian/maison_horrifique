@@ -27,6 +27,10 @@ export default function SessionsDetails() {
       .finally(() => setLoading(false))
   }, [])
 
+  const handleDelete = (id: string) => {
+  setSessions(prev => prev.filter(session => session.id !== id));
+  };
+
   if (loading) return <p>Chargement des sessions…</p>
   if (error) return <p>Erreur : {error}</p>
 
@@ -38,7 +42,7 @@ export default function SessionsDetails() {
       </button>
       <div className="sessions-container">
         {sessions.map((session) => (
-          <SessionCard key={session.id} session={session} />
+          <SessionCard key={session.id} session={session} onDelete={handleDelete}/>
         ))}
       </div>
     </div>
