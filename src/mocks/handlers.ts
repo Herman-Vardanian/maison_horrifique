@@ -35,7 +35,6 @@ export const handlers = [
           price: 25,
           available: true,
           image: "./img/maison_hantee.png",
-          availability: true,
         },
         {
           id: "2",
@@ -47,7 +46,6 @@ export const handlers = [
           price: 30,
           available: true,
           image: "./img/cimetiere_maudit.png",
-          availability: true,
         },
         {
           id: "3",
@@ -59,7 +57,6 @@ export const handlers = [
           price: 35,
           available: true,
           image: "./img/asile_abandonne.png",
-          availability: true,
         },
         {
           id: "4",
@@ -80,7 +77,7 @@ export const handlers = [
           duration: 60,
           description: "Échappez-vous du laboratoire d'un scientifique dérangé...",
           price: 45,
-          available: true,
+          available: false,
           image: "./img/chambre_docteur_fou.png",
         },
       ],

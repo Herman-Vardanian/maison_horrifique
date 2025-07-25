@@ -3,16 +3,16 @@ import { useEffect, useState } from 'react';
 type Session = {
   id: string;
   title: string;
-  availability: boolean;
+  available: boolean;
   maxPlayers: number;
-  duration: number
+  duration: number;
+  price: number;
 };
 
 function ReservationForm() {
   const [name, setName] = useState('');
   const [sessionId, setSessionId] = useState('');
   const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
   const [players, setPlayers] = useState<number | undefined>();
   const [sessions, setSessions] = useState<Session[]>([]);
 
@@ -34,8 +34,6 @@ function ReservationForm() {
       .then(data => setSessions(data));
   }, []);
 
-  const selectedSession = sessions.find(s => s.id === sessionId);
-
 useEffect(() => {
   if (sessionId && date) {
     fetch(`${import.meta.env.VITE_API_URL}/sessions/${sessionId}/slots`)
@@ -56,11 +54,11 @@ useEffect(() => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log({ name, sessionId, date, time, players});
+    console.log({ name, sessionId, date, players});
   };
   const selectedSession = sessions.find(session => session.id === sessionId);
-  const maxPlayersAllowed = selectedSession?.maxPlayers ?? 8;
-  const duration = selectedSession?.duration 
+  const maxPlayersAllowed = selectedSession?.maxPlayers;
+  const duration = selectedSession?.duration;
 
   return (
     <form onSubmit={handleSubmit}>
@@ -88,9 +86,8 @@ useEffect(() => {
             </option>
           ))}
       </select>
-      {selectedSession && (
-        <p>Prix par personne&nbsp;: {selectedSession.price}€</p>
-      )}
+      {duration && (<p>Durée de la session : {duration} minutes</p>)}
+      {selectedSession && (<p>Prix par personne&nbsp;: {selectedSession.price}€</p>)}
       <label htmlFor="date">Date</label>
       <input
         type="date"
@@ -99,14 +96,7 @@ useEffect(() => {
         min={today}
         required
       />
-      <label htmlFor="time">Heure</label>
-      <input
-        type="time"
-        value={time}
-        onChange={e => setTime(e.target.value)}
-        required
-      />
-      {duration && (<p>Durée de la session : {duration} minutes</p>)}
+      
       <label htmlFor="players">Nombre de joueurs (max {maxPlayersAllowed})</label>
       <input
         type="number"
