@@ -16,6 +16,6 @@ import('./mocks/browser').then(({ worker }) => {
     );
   });
 });
-
+}
 
 
