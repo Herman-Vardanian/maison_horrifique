@@ -4,12 +4,15 @@ type Session = {
   id: string;
   title: string;
   availability: boolean;
+  maxPlayers: number;
+  duration: number
 };
 
 function ReservationForm() {
   const [name, setName] = useState('');
   const [sessionId, setSessionId] = useState('');
   const [date, setDate] = useState('');
+  const [time, setTime] = useState('');
   const [players, setPlayers] = useState<number | undefined>();
   const [sessions, setSessions] = useState<Session[]>([]);
 
@@ -23,8 +26,11 @@ function ReservationForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log({ name, sessionId, date, players});
+    console.log({ name, sessionId, date, time, players});
   };
+  const selectedSession = sessions.find(session => session.id === sessionId);
+  const maxPlayersAllowed = selectedSession?.maxPlayers ?? 8;
+  const duration = selectedSession?.duration 
 
   return (
     <form onSubmit={handleSubmit}>
@@ -60,12 +66,20 @@ function ReservationForm() {
         min={today}
         required
       />
-      <label htmlFor="players">Nombre de joueurs</label>
+      <label htmlFor="time">Heure</label>
+      <input
+        type="time"
+        value={time}
+        onChange={e => setTime(e.target.value)}
+        required
+      />
+      {duration && (<p>Durée de la session : {duration} minutes</p>)}
+      <label htmlFor="players">Nombre de joueurs (max {maxPlayersAllowed})</label>
       <input
         type="number"
         placeholder="nombre de joueurs"
         min={2}
-        max={8}
+        max={maxPlayersAllowed}
         value={players}
         onChange={e => setPlayers(Number(e.target.value))}
         required

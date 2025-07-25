@@ -34,6 +34,7 @@ export const handlers = [
           description: "Une expérience terrifiante dans une maison abandonnée...",
           price: 25,
           image: "./img/maison_hantee.png",
+          availability: true,
         },
         {
           id: "2",
@@ -44,6 +45,7 @@ export const handlers = [
           description: "Explorez un ancien cimetière où les morts ne reposent pas en paix...",
           price: 30,
           image: "./img/cimetiere_maudit.png",
+          availability: true,
         },
         {
           id: "3",
@@ -54,6 +56,7 @@ export const handlers = [
           description: "Infiltrez-vous dans un asile psychiatrique abandonné...",
           price: 35,
           image: "./img/asile_abandonne.png",
+          availability: true,
         },
         {
           id: "4",
